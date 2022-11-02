@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Z-INDEX</title>
+    <style>
+        .container {
+            width: 400px;
+            height: 600px;
+            background-color: papayawhip;
+            padding: 20px
+        }
+
+        .item {
+            width: 150px;
+            height: 150px;
+            color: white;
+            padding: 10px;
+        }
+
+        .first-item {
+            background-color: goldenrod;
+            border: 5px solid gray;
+        }
+
+        .second-item {
+            background-color: brown;
+            border: 5px solid black;
+            margin-top: -50px;
+            margin-left: 50px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .third-item{
+            background-color: blueviolet;
+            border: 5px solid peru;
+            margin-top: -50px;
+            margin-left: 100px;
+            transform: rotateZ(45deg);
+        }
+
+        .block-1 {
+            position: relative;
+            z-index: 10;
+        }
+
+        .block-2{
+            width: 150px;
+            height: 150px;
+            background-color: aqua;
+            border: 5px solid black;
+            margin-top: -200px;
+            position: relative;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="block-1">
+            <!--stacking context: vi du nhu the body o duoi thi body va cac element con se la mot stacking context
+                stacking order : khi ta ko set z-index cho cac item, cac item xuat hien sau se nam de len cac item xuat hien truoc,
+            mot position element se luon nam de len unposition element
+            mot so thuoc tinh css nhu transform va opacity se lam cho element tao ra mot stacking context moi    
+            gia tri z-index cua 1 element co the bi gioi han boi thuoc tinh z-index cua cha no , ta co vi du nhu sau 
+            tao block 2 set z-index cho no la 20, cho block-1 z-index la 10 bay h set z-index cua second-item la con cua 
+            block la 1000 , ta thay no van ko noi len tren dc vi no chiu anh huong cua cha no la block-1 voi z-index la 10
+            ta co the hieu gia tri z-index cua second-item ko phai la 1000 ma la 10.1000 (vi no chiu su anh huong cua cha no)   -->            <div class="item first-item">Item 1</div>
+            <div class="item second-item">Item 2</div>
+            <div class="item third-item">Item 3</div>
+        </div>
+        <div class="block-2">
+            Block 2
+        </div>
+    </div>
+</body>
+</html>
